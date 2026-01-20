@@ -7,8 +7,6 @@
 
 An autonomous path-following system for the NVIDIA JetBot using behavioral cloning. The robot learns to navigate a track using only RGB camera input by imitating human demonstrations.
 
-
-
 ## 📋 Table of Contents
 
 - [Overview](#overview)
@@ -53,8 +51,6 @@ This project implements an end-to-end autonomous driving system for the JetBot p
 | Controller | Logitech F710 (analog) |
 | Track | Black surface, white boundaries, red corner markers |
 
-
-
 ## 💻 Installation
 
 ### On PC (for training)
@@ -64,6 +60,14 @@ This project implements an end-to-end autonomous driving system for the JetBot p
 git clone https://github.com/YOUR_USERNAME/Imitation-Learning-for-Path-Following-Using-NVIDIA-JetBot.git
 cd Imitation-Learning-for-Path-Following-Using-NVIDIA-JetBot
 
+# Create virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# or: venv\Scripts\activate  # Windows
+
+# Install dependencies
+pip install torch torchvision opencv-python numpy matplotlib scikit-learn jupyter
+```
 
 ### On JetBot (for data collection & deployment)
 
@@ -71,7 +75,7 @@ cd Imitation-Learning-for-Path-Following-Using-NVIDIA-JetBot
 # Clone the repository
 git clone https://github.com/YOUR_USERNAME/Imitation-Learning-for-Path-Following-Using-NVIDIA-JetBot.git
 cd Imitation-Learning-for-Path-Following-Using-NVIDIA-JetBot
-
+```
 
 ### Dependencies
 
@@ -99,12 +103,13 @@ jupyter
 ## 📁 Project Structure
 
 ```
-jetbot-imitation-learning/
+Imitation-Learning-for-Path-Following-Using-NVIDIA-JetBot/
+│
 ├── notebooks/
-│   ├── jetbot_steering_notebook.ipynb    # For data collection and Inference with constant speed
-│   ├── pc_steering_training_notebook.ipynb      # Steering-only training
-│   ├── pc_steering_speed_training_notebook.ipynb # Dual-output training
-│   └── jetbot_steering_speed_notebook.ipynb        # For data collection and Inference with steering and speed
+│   ├── jetbot_steering_notebook.ipynb          # Data collection & inference (constant speed)
+│   ├── pc_steering_training_notebook.ipynb     # Steering-only training
+│   ├── pc_steering_speed_training_notebook.ipynb  # Dual-output training
+│   └── jetbot_steering_speed_notebook.ipynb    # Data collection & inference (steering + speed)
 │
 ├── datasets/
 │   ├── dataset_v1/                     # Initial dataset (8,314 images)
@@ -116,14 +121,12 @@ jetbot-imitation-learning/
 │   ├── steering_model_dagger.pth       # DAgger-enhanced model
 │   └── steering_speed_model.pth        # Final dual-output model
 │
-│
 ├── report/
-│   ├── Adel_grooupe_RL_survey.pdf
+│   └── Adel_grooupe_RL_survey.pdf      # Full report
 │
 ├── presentation/
-│   └── RL_presentation.pdf                      # Presentation slides
+│   └── RL_presentation.pdf             # Presentation slides
 │
-
 └── README.md
 ```
 
@@ -132,7 +135,7 @@ jetbot-imitation-learning/
 ### Data Collection
 
 1. Connect the Logitech F710 controller to the JetBot
-2. Open `notebooks/jetbot_data_collection.ipynb`
+2. Open `notebooks/jetbot_steering_speed_notebook.ipynb`
 3. Configure settings:
    ```python
    DATASET_DIR = 'dataset_steering_speed_v1'
@@ -146,7 +149,7 @@ jetbot-imitation-learning/
 ### Training
 
 1. Transfer dataset from JetBot to PC
-2. Open `notebooks/pc_steering_speed_notebook.ipynb`
+2. Open `notebooks/pc_steering_speed_training_notebook.ipynb`
 3. Configure paths:
    ```python
    DATASET_DIR = 'dataset_steering_speed_v1'
@@ -156,6 +159,7 @@ jetbot-imitation-learning/
 5. Training takes ~35 minutes on a consumer GPU
 
 **Hyperparameters:**
+
 | Parameter | Value |
 |-----------|-------|
 | Optimizer | Adam |
@@ -167,7 +171,7 @@ jetbot-imitation-learning/
 ### Deployment
 
 1. Transfer trained model to JetBot
-2. Open `notebooks/jetbot_deployment.ipynb`
+2. Open `notebooks/jetbot_steering_speed_notebook.ipynb`
 3. Load model and run inference loop:
    ```python
    model = load_model('steering_speed_model.pth')
@@ -181,6 +185,23 @@ jetbot-imitation-learning/
 3. Merge new data with original dataset
 4. Retrain
 
+## 📊 Results
+
+### Training Metrics
+
+| Model | Dataset | MSE (Steering) | MAE (Steering) | MSE (Speed) | MAE (Speed) |
+|-------|---------|----------------|----------------|-------------|-------------|
+| Steering-only | 8,314 | 0.0265 | 0.0917 | — | — |
+| + DAgger | 8,497 | 0.0265 | 0.0892 | — | — |
+| + Speed (Final) | 11,039 | 0.0318 | 0.1106 | 0.0080 | 0.0293 |
+
+### Real-World Performance
+
+- ✅ **5+ minutes** continuous autonomous driving
+- ✅ **Multiple laps** without intervention
+- ✅ **Adaptive speed** — slows for corners, accelerates on straights
+- ✅ **20 Hz** inference on Jetson Nano
+- ✅ **First-attempt success** for dual-output model
 
 ### Demo Videos
 
@@ -192,8 +213,8 @@ jetbot-imitation-learning/
 
 ## 📄 Report & Presentation
 
-- **Full Report**: [report/main.pdf](report/Adel_grooupe_RL_survey.pdf)
-- **Presentation Slides**: [presentation/slides.pdf](presentation/RL_presentation.pdf)
+- **Full Report**: [report/Adel_grooupe_RL_survey.pdf](report/Adel_grooupe_RL_survey.pdf)
+- **Presentation Slides**: [presentation/RL_presentation.pdf](presentation/RL_presentation.pdf)
 
 ## 👥 Authors
 
