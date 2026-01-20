@@ -7,9 +7,7 @@
 
 An autonomous path-following system for the NVIDIA JetBot using behavioral cloning. The robot learns to navigate a track using only RGB camera input by imitating human demonstrations.
 
-<p align="center">
-  <img src="images/demo.gif" alt="JetBot Demo" width="600">
-</p>
+
 
 ## 📋 Table of Contents
 
@@ -55,10 +53,7 @@ This project implements an end-to-end autonomous driving system for the JetBot p
 | Controller | Logitech F710 (analog) |
 | Track | Black surface, white boundaries, red corner markers |
 
-<p align="center">
-  <img src="images/jetbot_full.jpg" alt="JetBot" width="300">
-  <img src="images/track.jpg" alt="Track" width="300">
-</p>
+
 
 ## 💻 Installation
 
@@ -66,28 +61,17 @@ This project implements an end-to-end autonomous driving system for the JetBot p
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/jetbot-imitation-learning.git
-cd jetbot-imitation-learning
+git clone https://github.com/YOUR_USERNAME/Imitation-Learning-for-Path-Following-Using-NVIDIA-JetBot.git
+cd Imitation-Learning-for-Path-Following-Using-NVIDIA-JetBot
 
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# or: venv\Scripts\activate  # Windows
-
-# Install dependencies
-pip install -r requirements.txt
-```
 
 ### On JetBot (for data collection & deployment)
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/jetbot-imitation-learning.git
-cd jetbot-imitation-learning
+git clone https://github.com/YOUR_USERNAME/Imitation-Learning-for-Path-Following-Using-NVIDIA-JetBot.git
+cd Imitation-Learning-for-Path-Following-Using-NVIDIA-JetBot
 
-# Install JetBot-specific dependencies
-pip install -r requirements_jetbot.txt
-```
 
 ### Dependencies
 
@@ -117,10 +101,10 @@ jupyter
 ```
 jetbot-imitation-learning/
 ├── notebooks/
-│   ├── jetbot_data_collection.ipynb    # Data collection on JetBot
-│   ├── pc_training_notebook.ipynb      # Steering-only training
-│   ├── pc_steering_speed_notebook.ipynb # Dual-output training
-│   └── jetbot_deployment.ipynb         # Real-time inference
+│   ├── jetbot_steering_notebook.ipynb    # For data collection and Inference with constant speed
+│   ├── pc_steering_training_notebook.ipynb      # Steering-only training
+│   ├── pc_steering_speed_training_notebook.ipynb # Dual-output training
+│   └── jetbot_steering_speed_notebook.ipynb        # For data collection and Inference with steering and speed
 │
 ├── datasets/
 │   ├── dataset_v1/                     # Initial dataset (8,314 images)
@@ -132,17 +116,14 @@ jetbot-imitation-learning/
 │   ├── steering_model_dagger.pth       # DAgger-enhanced model
 │   └── steering_speed_model.pth        # Final dual-output model
 │
-├── images/                             # Figures for report/README
 │
 ├── report/
-│   ├── main.tex                        # LaTeX report
-│   └── images/                         # Report figures
+│   ├── Adel_grooupe_RL_survey.pdf
 │
 ├── presentation/
-│   └── slides.pdf                      # Presentation slides
+│   └── RL_presentation.pdf                      # Presentation slides
 │
-├── requirements.txt
-├── requirements_jetbot.txt
+
 └── README.md
 ```
 
@@ -200,29 +181,6 @@ jetbot-imitation-learning/
 3. Merge new data with original dataset
 4. Retrain
 
-## 📊 Results
-
-### Training Metrics
-
-| Model | Dataset | MSE (Steering) | MAE (Steering) | MSE (Speed) | MAE (Speed) |
-|-------|---------|----------------|----------------|-------------|-------------|
-| Steering-only | 8,314 | 0.0265 | 0.0917 | — | — |
-| + DAgger | 8,497 | 0.0265 | 0.0892 | — | — |
-| + Speed (Final) | 11,039 | 0.0318 | 0.1106 | 0.0080 | 0.0293 |
-
-### Training Curves
-
-<p align="center">
-  <img src="images/loss_LR.png" alt="Training Curves" width="700">
-</p>
-
-### Real-World Performance
-
-- ✅ **5+ minutes** continuous autonomous driving
-- ✅ **Multiple laps** without intervention
-- ✅ **Adaptive speed** — slows for corners, accelerates on straights
-- ✅ **20 Hz** inference on Jetson Nano
-- ✅ **First-attempt success** for dual-output model
 
 ### Demo Videos
 
@@ -234,8 +192,8 @@ jetbot-imitation-learning/
 
 ## 📄 Report & Presentation
 
-- **Full Report**: [report/main.pdf](report/main.pdf)
-- **Presentation Slides**: [presentation/slides.pdf](presentation/slides.pdf)
+- **Full Report**: [report/main.pdf](report/Adel_grooupe_RL_survey.pdf)
+- **Presentation Slides**: [presentation/slides.pdf](presentation/RL_presentation.pdf)
 
 ## 👥 Authors
 
