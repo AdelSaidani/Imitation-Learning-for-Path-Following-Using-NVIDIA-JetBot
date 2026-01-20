@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/adel/ros2_ws/install/vectornav/include/**",
+        "/home/adel/ros2_ws/install/vectornav_msgs/include/**",
+        "/home/adel/ros2_ws/install/gscam2/include/**",
+        "/home/adel/ros2_ws/install/ros2_shared/include/**",
+        "/home/adel/ros2_ws/install/ptz_interfaces/include/**",
+        "/home/adel/ros2_ws/install/cola2_msgs/include/**",
+        "/opt/ros/jazzy/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ros2",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++17"
+    }
+  ],
+  "version": 4
+}

@@ -1,0 +1,27 @@
+{
+    "ROS2.distro": "jazzy",
+    "python.autoComplete.extraPaths": [
+        "/home/adel/ros2_ws/install/vectornav_msgs/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/ptz_camera_driver/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/camera_ptz_driver/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/ptz_interfaces/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/ntrip_client/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/nmea_navsat_driver/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/my_gps/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/cola2_msgs/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/airmar_driver/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/adel/ros2_ws/install/vectornav_msgs/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/ptz_camera_driver/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/camera_ptz_driver/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/ptz_interfaces/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/ntrip_client/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/nmea_navsat_driver/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/my_gps/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/cola2_msgs/lib/python3.12/site-packages",
+        "/home/adel/ros2_ws/install/airmar_driver/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ]
+}
