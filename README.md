@@ -207,9 +207,9 @@ Imitation-Learning-for-Path-Following-Using-NVIDIA-JetBot/
 
 | Description | Link |
 |-------------|------|
-| Final model (steering + speed) | [Watch](https://youtube.com/...) |
-| Before DAgger (corner failures) | [Watch](https://youtube.com/...) |
-| After DAgger (corners fixed) | [Watch](https://youtube.com/...) |
+| Final model (steering + speed) | [Watch](https://drive.google.com/file/d/1s3Nqr0IwKLLFqudSpSIvrCUrjbQaoI8b/view?usp=sharing) |
+| Final model (steering) | [Watch](https://drive.google.com/file/d/1N3N_txI871Jg3NHLagL7pW8ltE0vkZxz/view?usp=drive_link) |
+
 
 ## 📄 Report & Presentation
 
